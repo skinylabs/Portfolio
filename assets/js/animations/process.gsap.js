@@ -1,21 +1,19 @@
-gsap.fromTo(
-  ".process-step",
-  {
-    y: 40,
-    opacity: 0,
+gsap.from(".process-step", {
+  scrollTrigger: {
+    trigger: "#process",
+    start: "top 90%",
+    toggleActions: "play none none none",
+    invalidateOnRefresh: true,
+    once: true,
   },
-  {
-    y: 0,
-    opacity: 1,
-    duration: 0.8,
-    ease: "power3.out",
-    stagger: 0.15,
-    force3D: true,
-    scrollTrigger: {
-      trigger: "#process",
-      start: "top 80%",
-      toggleActions: "play none none none",
-      once: true,
-    },
-  }
-);
+  y: 60,
+  opacity: 0,
+  duration: 1.2,
+  ease: "power2.out",
+  stagger: {
+    each: 0.2,
+    from: "start",
+  },
+  force3D: true,
+  immediateRender: false,
+});

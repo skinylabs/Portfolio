@@ -2,7 +2,61 @@
   @apply py-64;
 }
 
-.feature-card,
-.process-step {
-  will-change: transform, opacity;
+/* sembunyikan cursor default di seluruh halaman */
+body,
+a,
+button,
+input,
+textarea,
+select {
+  cursor: none !important;
+}
+
+/* ===== TRIANGLE CURSOR ===== */
+#cursor-triangle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%) rotate(0deg);
+  will-change: transform;
+  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.7));
+  transition: transform 0.2s ease, scale 0.2s ease;
+}
+
+/* ===== GLOW AROUND CURSOR ===== */
+#cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(
+    circle,
+    rgba(56, 189, 248, 0.3) 0%,
+    rgba(56, 189, 248, 0.1) 50%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  filter: blur(16px);
+  transition: scale 0.2s ease, opacity 0.2s ease;
+}
+
+/* ===== HOVER EFFECT: FUTURISTIC ===== */
+.hover-fx-active #cursor-triangle {
+  transform: translate(-50%, -50%) scale(2) rotate(45deg);
+  filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.9));
+}
+
+.hover-fx-active #cursor-glow {
+  scale: 2.5;
+  opacity: 0.8;
 }
