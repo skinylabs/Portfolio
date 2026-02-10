@@ -1,0 +1,8 @@
+.container {
+  @apply py-64;
+}
+
+.feature-card,
+.process-step {
+  will-change: transform, opacity;
+}
